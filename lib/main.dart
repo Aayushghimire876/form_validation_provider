@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:form_validation_provider/form_page.dart';
+import 'package:form_validation_provider/form_provider.dart';
 import 'package:form_validation_provider/homepage.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(create: (_) => FormProvider(), child: const MyApp()),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -15,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const Homepage(),
+      home: const FormPage(),
     );
   }
 }
